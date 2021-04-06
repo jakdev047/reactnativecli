@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, TextInput, StyleSheet} from 'react-native';
+import {Text, View, TextInput, Button, Alert, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -24,8 +24,10 @@ const styles = StyleSheet.create({
 
 export default function App() {
   const handleInputChange = (text) => {
-    // eslint-disable-next-line no-alert
-    alert(text);
+    Alert?.alert(text);
+  };
+  const onPressHandler = () => {
+    Alert?.alert('Welcome React Native!');
   };
   return (
     <View>
@@ -35,6 +37,7 @@ export default function App() {
         placeholder="Enter Something..."
         onChangeText={(text) => handleInputChange(text)}
       />
+      <Button color="teal" title="Save" onPress={onPressHandler} />
     </View>
   );
 }

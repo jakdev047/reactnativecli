@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, TextInput, Button, Alert, StyleSheet} from 'react-native';
+import {Text, View, TextInput, Button, Alert, Image, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -37,6 +37,9 @@ export default function App() {
         placeholder="Enter Something..."
         onChangeText={(text) => handleInputChange(text)}
       />
+      <Image style={{width:'100%',height:300}} source={{uri: 'https://www.themesine.com/wp-content/uploads/edd/2019/02/khanas-banner.jpg'}} />
+      <View style={{height:30}}></View>
+      <Image style={{width:'100%',height:200}} source={require('./assets/images/carwallpaper.jpg')} />
       <Button color="teal" title="Save" onPress={onPressHandler} />
     </View>
   );

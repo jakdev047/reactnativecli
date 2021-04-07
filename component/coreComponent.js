@@ -7,6 +7,13 @@ const styles = StyleSheet.create({
         flex: 100,
         marginBottom: 10
     },
+    listGroupHorizontal: {
+        flexDirection: 'column',
+        marginBottom: 10,
+        width: 180,
+        height: 250,
+        padding: 5
+    },
     imageView: {
         flex: 30,
     },
@@ -15,6 +22,10 @@ const styles = StyleSheet.create({
         margin: 5,
         backgroundColor: '#ddd',
         flex: 70,
+    },
+    parentTextHorizontal: {
+        padding: 10,
+        backgroundColor: '#ddd',
     },
     itemText: {
         textAlign: 'center',
@@ -47,11 +58,39 @@ export default function CoreComponent() {
             </View>
         );
     }
+    const SingleCountryTwo = ({ item }) => {
+        return (
+            <View style={styles?.listGroupHorizontal}>
+                <View>
+                    <Image style={{ width: '100%', height: 150 }} source={{ uri: item?.img }} />
+                </View>
+                <View style={styles?.parentTextHorizontal}>
+                    <Text style={styles?.itemText} onPress={onPressHandler.bind(item,item?.country)}>{item?.country}</Text>
+                    <Text style={styles?.itemText}>{item?.city}</Text>
+                </View>
+            </View>
+        );
+    }
     return (
         <View>
             <FlatList
                 data={countryData}
                 renderItem={({ item }) => <SingleCountry item={item} />}
+                keyExtractor={item => item?.id}
+            ></FlatList>
+            <View style={{height: 30}}></View>
+            <FlatList
+                horizontal={true}
+                data={countryData}
+                renderItem={({ item }) => <SingleCountryTwo item={item} />}
+                keyExtractor={item => item?.id}
+            ></FlatList>
+            <View style={{height: 30}}></View>
+            <FlatList
+                numColumns={2}
+                horizontal={false}
+                data={countryData}
+                renderItem={({ item }) => <SingleCountryTwo item={item} />}
                 keyExtractor={item => item?.id}
             ></FlatList>
         </View>

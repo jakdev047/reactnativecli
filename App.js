@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, TextInput, Button, Alert, Image, StyleSheet, ScrollView} from 'react-native';
+import {Text, View, TextInput, Button, Alert, Image, StyleSheet, ScrollView, StatusBar} from 'react-native';
 import CoreComponent from './component/coreComponent';
 
 const styles = StyleSheet.create({
@@ -32,6 +32,7 @@ export default function App() {
   };
   return (
     <ScrollView horizontal={false}>
+      <StatusBar backgroundColor="#000" barStyle="light-content" hidden={false}/>
       <Text style={styles?.welcomeText}>Welcome React Native</Text>
       <TextInput
         style={styles?.textInput}

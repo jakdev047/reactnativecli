@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, TextInput, Button, Alert, Image, StyleSheet} from 'react-native';
+import {Text, View, TextInput, Button, Alert, Image, StyleSheet, ScrollView} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -30,17 +30,17 @@ export default function App() {
     Alert?.alert('Welcome React Native!');
   };
   return (
-    <View>
+    <ScrollView horizontal={false}>
       <Text style={styles?.welcomeText}>Welcome React Native</Text>
       <TextInput
         style={styles?.textInput}
         placeholder="Enter Something..."
         onChangeText={(text) => handleInputChange(text)}
       />
-      <Image style={{width:'100%',height:300}} source={{uri: 'https://www.themesine.com/wp-content/uploads/edd/2019/02/khanas-banner.jpg'}} />
+      <Image style={{width:'100%',height:500}} source={{uri: 'https://www.themesine.com/wp-content/uploads/edd/2019/02/khanas-banner.jpg'}} />
       <View style={{height:30}}></View>
-      <Image style={{width:'100%',height:200}} source={require('./assets/images/carwallpaper.jpg')} />
+      <Image style={{width:'100%',height:500}} source={require('./assets/images/carwallpaper.jpg')} />
       <Button color="teal" title="Save" onPress={onPressHandler} />
-    </View>
+    </ScrollView>
   );
 }

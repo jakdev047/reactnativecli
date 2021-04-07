@@ -1,5 +1,6 @@
 import React from 'react';
 import {Text, View, TextInput, Button, Alert, Image, StyleSheet, ScrollView} from 'react-native';
+import CoreComponent from './component/coreComponent';
 
 const styles = StyleSheet.create({
   container: {
@@ -40,6 +41,7 @@ export default function App() {
       <Image style={{width:'100%',height:500}} source={{uri: 'https://www.themesine.com/wp-content/uploads/edd/2019/02/khanas-banner.jpg'}} />
       <View style={{height:30}}></View>
       <Image style={{width:'100%',height:500}} source={require('./assets/images/carwallpaper.jpg')} />
+      <CoreComponent />
       <Button color="teal" title="Save" onPress={onPressHandler} />
     </ScrollView>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Text, View, TextInput, Button, Alert, Image, StyleSheet, ScrollView, StatusBar} from 'react-native';
+import Calculator from './component/calculator';
 import CoreComponent from './component/coreComponent';
 
 const styles = StyleSheet.create({
@@ -39,10 +40,24 @@ export default function App() {
         placeholder="Enter Something..."
         onChangeText={(text) => handleInputChange(text)}
       />
-      <Image style={{width:'100%',height:500}} source={{uri: 'https://www.themesine.com/wp-content/uploads/edd/2019/02/khanas-banner.jpg'}} />
+      <Image 
+        style={{width:'100%',height:500}} 
+        source={{uri: 'https://www.themesine.com/wp-content/uploads/edd/2019/02/khanas-banner.jpg'}} 
+      />
       <View style={{height:30}}></View>
       <Image style={{width:'100%',height:500}} source={require('./assets/images/carwallpaper.jpg')} />
       <CoreComponent />
+      <Calculator />
+      <TextInput
+        style={styles?.textInput}
+        placeholder="Your Name..."
+        placeholderTextColor="#000"
+        textAlign="left"
+        maxLength={20}
+        autofocus={true}
+        multiline={false}
+        onChangeText={(text) => handleInputChange(text)}
+      />
       <Button color="teal" title="Save" onPress={onPressHandler} />
     </ScrollView>
   );

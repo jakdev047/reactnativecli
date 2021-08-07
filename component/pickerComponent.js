@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
 // import { Picker } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 
@@ -16,6 +16,7 @@ const PickerComponent = () => {
     const [selectedLanguage, setSelectedLanguage] = useState("");
     return (
         <View>
+            <ActivityIndicator size="large" color="#000" />
             <Picker
                 selectedValue={selectedLanguage}
                 onValueChange={(itemValue, itemIndex) => {

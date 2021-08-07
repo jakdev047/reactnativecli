@@ -1,7 +1,8 @@
 import React from 'react';
-import {Text, View, TextInput, Button, Alert, Image, StyleSheet, ScrollView, StatusBar} from 'react-native';
+import { Text, View, TextInput, Button, Alert, Image, StyleSheet, ScrollView, StatusBar } from 'react-native';
 import Calculator from './component/calculator';
 import CoreComponent from './component/coreComponent';
+import PickerComponent from './component/pickerComponent';
 
 const styles = StyleSheet.create({
   container: {
@@ -33,20 +34,21 @@ export default function App() {
   };
   return (
     <ScrollView horizontal={false}>
-      <StatusBar backgroundColor="#000" barStyle="light-content" hidden={false}/>
+      <StatusBar backgroundColor="#000" barStyle="light-content" hidden={false} />
       <Text style={styles?.welcomeText}>Welcome React Native</Text>
       <TextInput
         style={styles?.textInput}
         placeholder="Enter Something..."
         onChangeText={(text) => handleInputChange(text)}
       />
-      <Image 
-        style={{width:'100%',height:500}} 
-        source={{uri: 'https://www.themesine.com/wp-content/uploads/edd/2019/02/khanas-banner.jpg'}} 
+      <Image
+        style={{ width: '100%', height: 500 }}
+        source={{ uri: 'https://www.themesine.com/wp-content/uploads/edd/2019/02/khanas-banner.jpg' }}
       />
-      <View style={{height:30}}></View>
-      <Image style={{width:'100%',height:500}} source={require('./assets/images/carwallpaper.jpg')} />
+      <View style={{ height: 30 }}></View>
+      <Image style={{ width: '100%', height: 500 }} source={require('./assets/images/carwallpaper.jpg')} />
       <CoreComponent />
+      <PickerComponent />
       <Calculator />
       <TextInput
         style={styles?.textInput}

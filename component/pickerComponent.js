@@ -7,6 +7,7 @@ import {
   Switch,
   Modal,
   Button,
+  ImageBackground,
 } from 'react-native';
 // import { Picker } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
@@ -75,6 +76,22 @@ const PickerComponent = () => {
           <Button onPress={() => closeModal()} title="Close" />
         </View>
       </Modal>
+
+      <View style={{height: 30}}></View>
+
+      {/* ImageBackground */}
+      <ImageBackground
+        style={{
+          width: '100%',
+          height: 200,
+          resizeMode: 'cover',
+          justifyContent: 'center',
+        }}
+        source={{
+          uri:
+            'https://upload.wikimedia.org/wikipedia/commons/f/fa/Faisal_Masjid_From_Damn_e_koh.jpg',
+        }}
+      />
     </View>
   );
 };

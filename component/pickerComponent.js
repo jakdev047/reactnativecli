@@ -1,5 +1,13 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, ActivityIndicator, Switch} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ActivityIndicator,
+  Switch,
+  Modal,
+  Button,
+} from 'react-native';
 // import { Picker } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 
@@ -10,11 +18,34 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 30,
   },
+  modalView: {
+    width: 250,
+    height: 150,
+    backgroundColor: '#FFFFFF',
+    margin: 10,
+    padding: 20,
+    elevation: 5,
+    shadowColor: '#FF2233',
+    alignItems: 'center',
+    shadowOffset: {height: 0, width: 2},
+  },
 });
 
 const PickerComponent = () => {
   const [selectedLanguage, setSelectedLanguage] = useState('');
   const [isText, setIsText] = useState(false);
+  const [isModalShow, setIsModalShow] = useState(false);
+
+  // open Modal
+  const openModal = () => {
+    setIsModalShow(true);
+  };
+
+  // close Modal
+  const closeModal = () => {
+    setIsModalShow(false);
+  };
+
   return (
     <View>
       <ActivityIndicator size="large" color="#000" />
@@ -35,6 +66,15 @@ const PickerComponent = () => {
         // disabled
       />
       <Text style={styles?.languageText}>{isText ? 'On' : 'Off'}</Text>
+
+      {/* Modal */}
+      <Button title="Modal Open" onPress={() => openModal()} />
+      <Modal visible={isModalShow} animationType={'fade'}>
+        <View style={styles?.modalView}>
+          <Text style={styles?.languageText}>This is Modal</Text>
+          <Button onPress={() => closeModal()} title="Close" />
+        </View>
+      </Modal>
     </View>
   );
 };

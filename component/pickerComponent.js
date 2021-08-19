@@ -8,6 +8,7 @@ import {
   Modal,
   Button,
   ImageBackground,
+  SafeAreaView,
 } from 'react-native';
 // import { Picker } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
@@ -48,7 +49,7 @@ const PickerComponent = () => {
   };
 
   return (
-    <View>
+    <SafeAreaView>
       <ActivityIndicator size="large" color="#000" />
       <Picker
         selectedValue={selectedLanguage}
@@ -92,7 +93,7 @@ const PickerComponent = () => {
             'https://upload.wikimedia.org/wikipedia/commons/f/fa/Faisal_Masjid_From_Damn_e_koh.jpg',
         }}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 

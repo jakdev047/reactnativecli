@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function Home(props) {
+export default function Welcome(props) {
   const handleInputChange = (text) => {
     Alert?.alert(text);
   };

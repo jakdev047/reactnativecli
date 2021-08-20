@@ -9,6 +9,8 @@ import {
   Button,
   ImageBackground,
   SafeAreaView,
+  TouchableHighlight,
+  Alert,
 } from 'react-native';
 // import { Picker } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
@@ -48,9 +50,17 @@ const PickerComponent = () => {
     setIsModalShow(false);
   };
 
+  // touchable
+  const touchableHandler = (title) => {
+    Alert?.alert(title);
+  };
+
   return (
     <SafeAreaView>
+      {/* ActivityIndicator */}
       <ActivityIndicator size="large" color="#000" />
+
+      {/* Picker */}
       <Picker
         selectedValue={selectedLanguage}
         onValueChange={(itemValue, itemIndex) => {
@@ -60,6 +70,8 @@ const PickerComponent = () => {
         <Picker.Item label="JavaScript" value="Javascript" />
       </Picker>
       <Text style={styles?.languageText}>{selectedLanguage}</Text>
+
+      {/* Switch */}
       <Switch
         value={isText}
         onValueChange={() => setIsText(!isText)}
@@ -93,6 +105,22 @@ const PickerComponent = () => {
             'https://upload.wikimedia.org/wikipedia/commons/f/fa/Faisal_Masjid_From_Damn_e_koh.jpg',
         }}
       />
+
+      {/* TouchableHighlight */}
+      <View
+        style={{
+          flex: 1,
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+        <TouchableHighlight
+          activeOpacity={0.8}
+          onPress={() => touchableHandler('Touchable Highlight')}
+          underlayColor="#DDDDDD">
+          <Text style={{fontSize: 30}}>Touchable Highlight</Text>
+        </TouchableHighlight>
+      </View>
     </SafeAreaView>
   );
 };

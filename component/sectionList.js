@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, Text, StyleSheet, SafeAreaView, SectionList} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  SafeAreaView,
+  SectionList,
+  Alert,
+} from 'react-native';
 
 const styles = StyleSheet.create({
   listGroup: {
@@ -46,11 +53,21 @@ export default function SectionListComponent() {
       title: 'India',
       data: ['West Bengal', 'Asam', 'Bihar', 'Tripura', 'Mizorampur'],
     },
+    {
+      id: '3',
+      title: 'Pakistan',
+      data: ['Lahore', 'Faisalabad', 'Islamabad', 'Karachi', 'Panjab'],
+    },
   ];
+  const textHandler = (childName) => {
+    Alert?.alert(childName);
+  };
   const ItemChild = ({item}) => {
     return (
       <View style={{marginBottom: 10, paddingLeft: 15}}>
-        <Text style={{color: '#000', fontSize: 18, fontWeight: 'bold'}}>
+        <Text
+          style={{color: '#000', fontSize: 18, fontWeight: 'bold'}}
+          onPress={() => textHandler(item)}>
           {item}
         </Text>
       </View>
@@ -65,7 +82,9 @@ export default function SectionListComponent() {
           padding: 15,
           marginBottom: 15,
         }}>
-        <Text style={{color: '#fff', fontSize: 24, fontWeight: 'bold'}}>
+        <Text
+          style={{color: '#fff', fontSize: 24, fontWeight: 'bold'}}
+          onPress={() => textHandler(headChild)}>
           {headChild}
         </Text>
       </View>
@@ -75,6 +94,8 @@ export default function SectionListComponent() {
   return (
     <SafeAreaView>
       <SectionList
+        inverted={-1}
+        stickySectionHeadersEnabled={true}
         sections={cityData}
         renderItem={({item}) => <ItemChild item={item} />}
         renderSectionHeader={({section: {title}}) => (

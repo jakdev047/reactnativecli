@@ -21,13 +21,36 @@ export default function About(props) {
     <SafeAreaView>
       <View>
         <Text style={styles?.welcomeText}>About</Text>
-        <Button
-          color="teal"
-          title="Home"
-          onPress={() => {
-            props?.navigation?.navigate('Home');
-          }}
-        />
+        <View
+          style={{
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexDirection: 'row',
+            padding: 15,
+          }}>
+          <Button
+            style={{margin: 15}}
+            color="teal"
+            title="Home"
+            onPress={() => {
+              props?.navigation?.navigate('Home');
+            }}
+          />
+          <Button
+            color="teal"
+            title="Input"
+            onPress={() => {
+              props?.navigation?.navigate('Input');
+            }}
+          />
+          <Button
+            color="teal"
+            title="Table"
+            onPress={() => {
+              props?.navigation?.navigate('Home');
+            }}
+          />
+        </View>
       </View>
     </SafeAreaView>
   );

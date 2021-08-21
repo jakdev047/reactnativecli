@@ -4,6 +4,7 @@ import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 import BottomNavigation from './bottomNavigation';
 import GetStarted from '../screens/getStarted';
 import LogIn from '../screens/login';
+import Input from '../screens/input/Input';
 
 export default function RootNavigation() {
   const Stack = createStackNavigator();
@@ -21,6 +22,9 @@ export default function RootNavigation() {
         <Stack.Screen name="Get Started" component={GetStarted} />
         <Stack.Screen name="Log in" component={LogIn} />
         <Stack.Screen name="Home" component={BottomNavigation} />
+
+        {/* Component Pages */}
+        <Stack.Screen name="Input" component={Input} />
       </Stack.Navigator>
     </NavigationContainer>
   );

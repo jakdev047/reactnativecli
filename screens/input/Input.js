@@ -6,6 +6,8 @@ import Row from '../../helper/Row';
 import Col from '../../helper/Col';
 import FormInput from '../../helper/TextInput';
 import CustomButton from '../../helper/CustomButton';
+import IDatePicker from '../../helper/IDatePicker';
+import {_todayDate} from '../../functions/_todayDate';
 
 const styles = StyleSheet.create({
   container: {
@@ -24,6 +26,7 @@ const styles = StyleSheet.create({
 
 const initialValues = {
   reason: '',
+  fromDate: _todayDate(),
 };
 
 const validationSchema = Yup.object().shape({
@@ -56,6 +59,13 @@ export default function Input(props) {
               name="reason"
               label="Reason"
               placeholder="Enter Reason"
+              formikProps={formikprops}
+            />
+          </Col>
+          <Col width="50%">
+            <IDatePicker
+              label="From Date"
+              name="fromDate"
               formikProps={formikprops}
             />
           </Col>

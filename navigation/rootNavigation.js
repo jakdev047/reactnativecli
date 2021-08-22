@@ -5,6 +5,7 @@ import BottomNavigation from './bottomNavigation';
 import GetStarted from '../screens/getStarted';
 import LogIn from '../screens/login';
 import Input from '../screens/input/Input';
+import ReduxPage from '../screens/reduxPage/index';
 
 export default function RootNavigation() {
   const Stack = createStackNavigator();
@@ -25,6 +26,7 @@ export default function RootNavigation() {
 
         {/* Component Pages */}
         <Stack.Screen name="Input" component={Input} />
+        <Stack.Screen name="Redux" component={ReduxPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );

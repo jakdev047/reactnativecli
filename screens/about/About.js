@@ -45,9 +45,9 @@ export default function About(props) {
           />
           <Button
             color="teal"
-            title="Table"
+            title="Redux"
             onPress={() => {
-              props?.navigation?.navigate('Home');
+              props?.navigation?.navigate('Redux');
             }}
           />
         </View>

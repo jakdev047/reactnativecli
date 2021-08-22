@@ -8,6 +8,7 @@ import FormInput from '../../helper/TextInput';
 import CustomButton from '../../helper/CustomButton';
 import IDatePicker from '../../helper/IDatePicker';
 import {_todayDate} from '../../functions/_todayDate';
+import ICustomPicker from '../../helper/ICustomPicker';
 
 const styles = StyleSheet.create({
   container: {
@@ -31,6 +32,10 @@ const initialValues = {
 
 const validationSchema = Yup.object().shape({
   reason: Yup.string().required('Reason is required'),
+  country: Yup.object().shape({
+    label: Yup.string().required('Country is required'),
+    value: Yup.string().required('Country is required'),
+  }),
 });
 
 export default function Input(props) {
@@ -46,7 +51,7 @@ export default function Input(props) {
     },
   });
   const saveHandler = (values, cb) => {
-    console.log('values', values);
+    console.log('Values', JSON.stringify(values, null, 2));
   };
   return (
     <SafeAreaView>
@@ -67,6 +72,22 @@ export default function Input(props) {
               label="From Date"
               name="fromDate"
               formikProps={formikprops}
+            />
+          </Col>
+          <Col width="50%">
+            <ICustomPicker
+              label="Country Name"
+              name="country"
+              options={[
+                {value: 1, label: 'Bangladesh'},
+                {value: 2, label: 'Pakistan'},
+                {value: 3, label: 'Srilanka'},
+              ]}
+              formikProps={formikprops}
+              // disabled={!location?.latitude}
+              onChange={(selectedOption) => {
+                formikprops.setFieldValue('country', selectedOption);
+              }}
             />
           </Col>
         </Row>

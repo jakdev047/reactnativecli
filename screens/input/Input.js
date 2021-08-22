@@ -9,6 +9,8 @@ import CustomButton from '../../helper/CustomButton';
 import IDatePicker from '../../helper/IDatePicker';
 import {_todayDate} from '../../functions/_todayDate';
 import ICustomPicker from '../../helper/ICustomPicker';
+import IRadioButton from './../../helper/IRadioButton';
+import ICheckbox from './../../helper/ICheckbox';
 
 const styles = StyleSheet.create({
   container: {
@@ -23,15 +25,27 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 30,
   },
+  formContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    // backgroundColor: transparent,
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+    marginTop: 23,
+  },
 });
 
 const initialValues = {
   reason: '',
   fromDate: _todayDate(),
+  gender: '',
+  isCooler: false,
 };
 
 const validationSchema = Yup.object().shape({
   reason: Yup.string().required('Reason is required'),
+  gender: Yup.string().required('Gender is required'),
+  isCooler: Yup.bool().required('Is Coller is required'),
   country: Yup.object().shape({
     label: Yup.string().required('Country is required'),
     value: Yup.string().required('Country is required'),
@@ -89,6 +103,46 @@ export default function Input(props) {
                 formikprops.setFieldValue('country', selectedOption);
               }}
             />
+          </Col>
+          <Col width="50%">
+            <View style={styles.formContent}>
+              <Text style={{marginHorizontal: 10}}>Male</Text>
+              <IRadioButton
+                onPress={() => {
+                  formikprops.setFieldValue('gender', 'Male');
+                }}
+                selected={formikprops?.values?.gender === 'Male'}
+              />
+
+              <Text style={{marginHorizontal: 10}}>Female</Text>
+              <IRadioButton
+                onPress={() => {
+                  formikprops.setFieldValue('gender', 'female');
+                }}
+                selected={formikprops?.values?.gender === 'female'}
+              />
+            </View>
+          </Col>
+          <Col width="50%">
+            <View
+              style={[
+                {
+                  flexDirection: 'row',
+                  justifyContent: 'flex-start',
+                  marginVertical: 10,
+                },
+              ]}>
+              <ICheckbox
+                checked={formikprops?.values?.isCooler}
+                onPress={(e) => {
+                  formikprops?.setFieldValue(
+                    'isCooler',
+                    !formikprops?.values?.isCooler,
+                  );
+                }}
+              />
+              <Text>Is Coller</Text>
+            </View>
           </Col>
         </Row>
         <CustomButton
